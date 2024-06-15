@@ -1,13 +1,13 @@
 import express from 'express';
 import cors from 'cors';
-import dbConfig from './config/db.config.js';
-import auth from './routes/auth.route.js';
-import conversation from './routes/conversation.route.js';
-import message from './routes/message.route.js';
+import dbConfig from './src/config/db.config.js';
+import auth from './src/routes/auth.route.js';
+import conversation from './src/routes/conversation.route.js';
+import message from './src/routes/message.route.js';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
-import Message from './model/message.model.js';
-import Conversation from './model/conversation.model.js';
+import Message from './src/model/message.model.js';
+import Conversation from './src/model/conversation.model.js';
 
 const port = 5000;
 const app = express();
