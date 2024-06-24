@@ -99,14 +99,14 @@ io.on('connection', (socket) => {
         }
     });
 
-    // socket.on("on-typing", (data) => {
-    //     //Here Sender is the person who is typing
-    //     const { receiverId, senderId } = data;
-    //     const receiverUser = activeUsers.find((user) => user.user?._id === receiverId)
-    //     if (receiverUser) {
-    //         io.to(receiverUser?.socketId).emit("receive", { isTyping: true });
-    //     }
-    // })
+    socket.on("on-typing", (data) => {
+        //Here Sender is the person who is typing
+        const { receiverId, senderId } = data;
+        const receiverUser = activeUsers.find((user) => user.user?._id === receiverId)
+        if (receiverUser) {
+            io.to(receiverUser?.socketId).emit("on-typing", { isTyping: true, typierId: senderId });
+        }
+    })
 
 
 })
